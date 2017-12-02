@@ -1,14 +1,13 @@
 package hu.borcsok.advent.y2017.d01
 
 import org.specs2._
+import hu.borcsok.advent.y2017.Helpers._
 
 class CaptchaSpecs extends Specification {
 
   def captcha(n: Int): Int = Captcha.part1(n.toString)
 
   def captcha2(n: Int): Int = Captcha.part2(n.toString)
-
-  def readResource(resource: String): String = scala.io.Source.fromResource(resource).mkString
 
   def captcha(resource: String): Int = Captcha.part1(readResource(resource))
 
