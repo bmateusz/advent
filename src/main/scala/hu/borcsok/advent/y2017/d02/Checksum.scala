@@ -1,5 +1,7 @@
 package hu.borcsok.advent.y2017.d02
 
+import scala.annotation.tailrec
+
 object Checksum {
 
   def minMaxDiff(line: Seq[Int]): Int = {
@@ -10,6 +12,7 @@ object Checksum {
     matrix.map(minMaxDiff).sum
   }
 
+  @tailrec
   def searchDiv(numbers: Seq[Int]): Int = {
     numbers.toList match {
       case x :: xs =>
