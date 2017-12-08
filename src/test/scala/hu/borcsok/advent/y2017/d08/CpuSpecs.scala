@@ -59,9 +59,9 @@ how much memory to allocate to these operations.
 For example, in the above instructions, the highest value ever held was 10 (in register c after the third instruction was evaluated).
 
 ${input.foldLeft((Cpu(), 0)) {
-      case ((cpu: Cpu, max: Int), op: String) =>
+      case ((cpu: Cpu, maxRegister: Int), op: String) =>
         val nextCycle = cpu.operation(op)
-        (nextCycle, if (nextCycle.largestRegisterValue > max) nextCycle.largestRegisterValue else max)
+        (nextCycle, nextCycle.largestRegisterValue max maxRegister)
     }._2 === 6696
   }
 """
