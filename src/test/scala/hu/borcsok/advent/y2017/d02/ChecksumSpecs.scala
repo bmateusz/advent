@@ -14,10 +14,10 @@ class ChecksumSpecs extends Specification {
   def checkDivResource(str: String): Int = Checksum.dividesSum(readResourceLines(str).map(lineToInts))
 
   def is =
-  s2"""
-Day 02
+s2"""
+# Day 02
 
-Part I
+## Part I
 The spreadsheet consists of rows of apparently-random numbers. To make sure the recovery process is on the right track,
 they need you to calculate the spreadsheet's checksum. For each row, determine the difference between the largest value
 and the smallest value; the checksum is the sum of all of these differences.
@@ -50,6 +50,5 @@ In the third row, the result is 2.
 In this example, the sum of the results would be 4 + 3 + 2 = 9.
 
 ${checkDivResource("2017/checksum.txt") === 275}
-  """
-
+"""
 }

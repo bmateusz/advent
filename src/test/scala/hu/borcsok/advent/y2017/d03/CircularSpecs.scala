@@ -1,15 +1,15 @@
 package hu.borcsok.advent.y2017.d03
 
-import hu.borcsok.advent.y2017.d03.Circular.Position
 import org.specs2.Specification
+import hu.borcsok.advent.y2017.d03.Circular.Position
 
 class CircularSpecs extends Specification {
 
   def is =
-  s2"""
-Day 03
+s2"""
+# Day 03
 
-Part I
+## Part I
 Each square on the grid is allocated in a spiral pattern starting at a location marked 1 and then counting up while
 spiraling outward. For example, the first few squares are allocated like this:
 
@@ -79,7 +79,7 @@ ${Circular.positionFrom(22) === Position(-1, 2)}
 ${Circular.positionFrom(23) === Position(0, 2)}
 ${Circular.positionFrom(24) === Position(1, 2)}
 
-Part II
+## Part II
 
 As a stress test on the system, the programs here clear the grid and then store the value 1 in square 1.
 Then, in the same allocation order as shown above, they store the sum of the values in all adjacent squares,
@@ -127,5 +127,5 @@ ${Circular.stress(24) === 880}
 
 ${Circular.stressFirstLargerThan(368078) === Some(65)}
 ${Circular.stress(65) === 369601}
-  """
+"""
 }

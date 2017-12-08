@@ -8,8 +8,8 @@ class CircusSpecs extends Specification{
   def input: Seq[String] = readResourceLines("2017/circus.txt")
 
   def is =
-  s2"""
-Day 07
+s2"""
+# Day 07
 
 Wandering further through the circuits of the computer, you come upon a tower of programs that have gotten themselves
 into a bit of trouble.
@@ -77,7 +77,7 @@ Before you're ready to help them, you need to make sure your information is corr
 
 ${Circus.read(input).roots === Set("dgoocsw")}
 
-Part II
+## Part II
 
 The programs explain the situation: they can't get down. Rather, they could get down,
 if they weren't expending all of their energy trying to keep the tower balanced.
@@ -104,5 +104,5 @@ Given that exactly one program is the wrong weight, what would its weight need t
 ${Circus.read(input).weight === 342072}
 
 ${Circus.read(input).updateWeight("marnqj", 1275).weight === 342064}
-  """
+"""
 }

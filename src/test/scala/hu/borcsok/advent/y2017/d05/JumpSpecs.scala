@@ -10,10 +10,10 @@ class JumpSpecs extends Specification {
   val exercise = Jump(readResourceLines("2017/jump.txt").map(_.toInt).toVector)
 
   def is =
-  s2"""
-Day 05
+s2"""
+# Day 05
 
-Part I
+## Part I
 The message includes a list of the offsets for each jump.
 Jumps are relative: -1 moves to the previous instruction, and 2 skips the next one.
 Start at the first instruction in the list. The goal is to follow the jumps until one leads outside the list.
@@ -40,7 +40,7 @@ In this example, the exit is reached in 5 steps.
 ${example.stepsUntilOutOfBounds(StepByOne) === 5}
 ${exercise.stepsUntilOutOfBounds(StepByOne) === 343467}
 
-Part II
+## Part II
 
 Now, the jumps are even stranger: after each jump, if the offset was three or more, instead decrease it by 1.
 Otherwise, increase it by 1 as before.
@@ -50,5 +50,5 @@ ${example.stepsUntilOutOfBounds(StepStrange) === 10}
 
 How many steps does it now take to reach the exit?
 ${exercise.stepsUntilOutOfBounds(StepStrange) === 24774780}
-  """
+"""
 }

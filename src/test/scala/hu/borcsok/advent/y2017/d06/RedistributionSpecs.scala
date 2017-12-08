@@ -14,10 +14,10 @@ class RedistributionSpecs extends Specification {
   val competition = Redistribution(Vector(11, 11, 13, 7, 0, 15, 5, 5, 4, 4, 1, 1, 7, 1, 15, 11))
 
   def is =
-  s2"""
-Day 06
+s2"""
+# Day 06
 
-Part I
+## Part I
 A debugger program here is having an issue: it is trying to repair a memory reallocation routine,
 but it keeps getting stuck in an infinite loop.
 
@@ -58,7 +58,7 @@ ${initial.findLoop().cycles === 5}
 
 ${competition.findLoop().cycles === 4074}
 
-Part II
+## Part II
 
 Out of curiosity, the debugger would also like to know the size of the loop:
 starting from a state that has already been seen, how many block redistribution
@@ -69,6 +69,5 @@ In the example above, 2 4 1 2 is seen again after four cycles, and so the answer
 ${initial.findLoop().seenAgain === 4}
 
 ${competition.findLoop().seenAgain === 2793}
-  """
-
+"""
 }

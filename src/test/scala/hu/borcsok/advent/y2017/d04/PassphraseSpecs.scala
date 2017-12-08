@@ -14,8 +14,8 @@ class PassphraseSpecs extends Specification {
   }
 
   def is =
-  s2"""
-Day 04
+s2"""
+# Day 04
 
 A new system policy has been put in place that requires all accounts to use a passphrase instead of simply a password.
 A passphrase consists of a series of words (lowercase letters) separated by spaces.
@@ -30,5 +30,5 @@ aa bb cc dd aaa is valid - aa and aaa count as different words.
 
 ${passphrases.map(w => Passphrase.isUnique(w)).count(_ == true) === 477}
 ${sortedPassphrases.map(w => Passphrase.isUnique(w)).count(_ == true) === 167}
-  """
+"""
 }

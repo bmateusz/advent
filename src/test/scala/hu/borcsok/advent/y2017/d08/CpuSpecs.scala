@@ -1,17 +1,17 @@
 package hu.borcsok.advent.y2017.d08
 
 import org.specs2.Specification
-import hu.borcsok.advent.y2017.Helpers.readResourceLines
+import hu.borcsok.advent.y2017.Helpers._
 
 class CpuSpecs extends Specification {
 
   def input: Seq[String] = readResourceLines("2017/cpu.txt")
 
   def is =
-  s2"""
-Day 08
+s2"""
+# Day 08
 
-Part I
+## Part I
 
 You receive a signal directly from the CPU. Because of your recent assistance with jump instructions,
 it would like you to compute the result of a series of unusual register instructions.
@@ -51,7 +51,7 @@ ${input.foldLeft(Cpu()) {
   }.largestRegisterValue === 6061
 }
 
-Part II
+## Part II
 
 To be safe, the CPU also needs to know the highest value held in any register during this process so that it can decide
 how much memory to allocate to these operations.
