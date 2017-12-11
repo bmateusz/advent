@@ -24,7 +24,7 @@ object Circular {
 
   case class Position(x: Int, y: Int) {
     lazy val manhattan: Int = Math.abs(x) + Math.abs(y)
-    def add(value: Position): Position = Position(x + value.x, y + value.y)
+    def +(value: Position): Position = Position(x + value.x, y + value.y)
   }
 
   def positionFrom(n: Int): Position = {
@@ -87,7 +87,7 @@ object Circular {
     )
 
     def sumAroundPosition(position: Position, seq: Seq[Int]): Int = {
-      around.map(position.add).map {
+      around.map(position.+).map {
         p =>
           val n = findInCache(p)
           if (n == -1) 0
