@@ -48,8 +48,12 @@ object Hash {
     }
   }
 
-  def hash64(str: String): String = {
+  def hashHex(str: String): String = {
     xorToHex(hashToXor(hashStr(str)._1))
+  }
+
+  def hashBin(str: String): String = {
+    xorToBin(hashToXor(hashStr(str)._1))
   }
 
   def hashToXor(seq: Seq[Int]): Seq[Int] = {
@@ -58,9 +62,16 @@ object Hash {
 
   def xorToHex(seq: Seq[Int]): String = {
     seq.map { (c: Int) =>
-      val hex = c.toHexString
-      if (hex.length == 2) hex else s"0$hex"
+      padWithZero(2, c.toHexString)
     }.mkString
   }
+
+  def xorToBin(seq: Seq[Int]): String = {
+    seq.map { (c: Int) =>
+      padWithZero(8, c.toBinaryString)
+    }.mkString
+  }
+
+  def padWithZero(n: Int, str: String): String = "0" * (n - str.length max 0) + str
 
 }

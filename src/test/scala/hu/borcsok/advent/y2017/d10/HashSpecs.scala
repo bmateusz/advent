@@ -118,13 +118,13 @@ Because every Knot Hash is sixteen such numbers, the hexadecimal representation 
 
 Here are some example hashes:
 
-${Hash.hash64("") === "a2582a3a0e66e6e86e3812dcb672a272"}
-${Hash.hash64("AoC 2017") === "33efeb34ea91902bb2f59c9920caa6cd"}
-${Hash.hash64("1,2,3") === "3efbe78a8d82f29979031a4aa0b16a9d"}
-${Hash.hash64("1,2,4") === "63960835bcdc130f0b66d7ff4f6a5a8e"}
+${Hash.hashHex("") === "a2582a3a0e66e6e86e3812dcb672a272"}
+${Hash.hashHex("AoC 2017") === "33efeb34ea91902bb2f59c9920caa6cd"}
+${Hash.hashHex("1,2,3") === "3efbe78a8d82f29979031a4aa0b16a9d"}
+${Hash.hashHex("1,2,4") === "63960835bcdc130f0b66d7ff4f6a5a8e"}
 Treating your puzzle input as a string of ASCII characters, what is the Knot Hash of your puzzle input?
 Ignore any leading or trailing whitespace you might encounter.
 
-${Hash.hash64(input.mkString(",")) === "decdf7d377879877173b7f2fb131cf1b"}
+${Hash.hashHex(input.mkString(",")) === "decdf7d377879877173b7f2fb131cf1b"}
 """
 }
