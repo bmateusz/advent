@@ -144,7 +144,7 @@ ${pickyExample.judge(fiveMillion) === 309}
 
 After 5 million pairs, but using this new generator logic, what is the judge's final count?
 
-${pickyInput.judge(fiveMillion) === 309}
+${pickyInput.judge(fiveMillion) === 320}
 """
 
 }
