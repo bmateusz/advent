@@ -4,9 +4,9 @@ import org.specs2.Specification
 
 class GeneratorSpecs extends Specification {
 
-  val example = Generator(65, 8921)
+  val example = SimpleGenerator(65, 8921)
 
-  val input = Generator(277, 349)
+  val input = SimpleGenerator(277, 349)
 
   val pickyExample: Generator = example.toPicky
 
@@ -45,11 +45,11 @@ Then, the first five pairs of generated values are:
 1744312007   137874439
 1352636452   285222916
 
-${example.step === Generator(1092455, 430625591)}
-${example.run(2) === Generator(1181022009, 1233683848)}
-${example.run(3) === Generator(245556042, 1431495498)}
-${example.run(4) === Generator(1744312007, 137874439)}
-${example.run(5) === Generator(1352636452, 285222916)}
+${example.step === SimpleGenerator(1092455, 430625591)}
+${example.run(2) === SimpleGenerator(1181022009, 1233683848)}
+${example.run(3) === SimpleGenerator(245556042, 1431495498)}
+${example.run(4) === SimpleGenerator(1744312007, 137874439)}
+${example.run(5) === SimpleGenerator(1352636452, 285222916)}
 
 In binary, these pairs are (with generator A's value first in each pair):
 
@@ -106,11 +106,11 @@ Using the example starting values given above, the generators now produce the fo
 1980017072  1616057672
  740335192   412269392
 
-${pickyExample.step === Generator(1352636452, 1233683848, 4, 8)}
-${pickyExample.run(2) === Generator(1992081072, 862516352, 4, 8)}
-${pickyExample.run(3) === Generator(530830436, 1159784568, 4, 8)}
-${pickyExample.run(4) === Generator(1980017072, 1616057672, 4, 8)}
-${pickyExample.run(5) === Generator(740335192, 412269392, 4, 8)}
+${pickyExample.step === PickyGenerator(1352636452, 1233683848)}
+${pickyExample.run(2) === PickyGenerator(1992081072, 862516352)}
+${pickyExample.run(3) === PickyGenerator(530830436, 1159784568)}
+${pickyExample.run(4) === PickyGenerator(1980017072, 1616057672)}
+${pickyExample.run(5) === PickyGenerator(740335192, 412269392)}
 
 These values have the following corresponding binary values:
 
