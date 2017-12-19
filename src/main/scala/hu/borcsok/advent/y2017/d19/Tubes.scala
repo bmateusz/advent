@@ -1,38 +1,40 @@
 package hu.borcsok.advent.y2017.d19
 
+import scala.annotation.tailrec
+
 sealed trait Direction {
   val x: Int
   val y: Int
-  def left: Direction
-  def right: Direction
+  val left: Direction
+  val right: Direction
 }
 
 case object Left extends Direction {
   override val x: Int = -1
   override val y: Int = 0
-  override def left: Direction = Down
-  override def right: Direction = Up
+  override val left: Direction = Down
+  override val right: Direction = Up
 }
 
 case object Right extends Direction {
   override val x: Int = 1
   override val y: Int = 0
-  override def left: Direction = Up
-  override def right: Direction = Down
+  override val left: Direction = Up
+  override val right: Direction = Down
 }
 
 case object Up extends Direction {
   override val x: Int = 0
   override val y: Int = -1
-  override def left: Direction = Left
-  override def right: Direction = Right
+  override val left: Direction = Left
+  override val right: Direction = Right
 }
 
 case object Down extends Direction {
   override val x: Int = 0
   override val y: Int = 1
-  override def left: Direction = Right
-  override def right: Direction = Left
+  override val left: Direction = Right
+  override val right: Direction = Left
 }
 
 case class Turtle(x: Int, y: Int, direction: Direction) {
@@ -54,34 +56,16 @@ object Tubes {
     step(input, Turtle(input.head.indexOf('|'), 0, Down))
   }
 
+  @tailrec
   def step(input: Seq[String], turtle: Turtle, result: Result = Result()): Result = {
 
     val newResult: Result = result.step(get(input, turtle))
 
-    val next: Turtle = {
-      val tryStraight = turtle.move
-      if (isValid(input, tryStraight)) {
-        tryStraight
-      } else {
-        val tryLeft = turtle.left.move
-        if (isValid(input, tryLeft)) {
-          tryLeft
-        } else {
-          val tryRight = turtle.right.move
-          if (isValid(input, tryRight)) {
-            tryRight
-          } else {
-            turtle
-          }
-        }
-      }
+    Seq(turtle, turtle.left, turtle.right).view.map(_.move).find(t => isValid(input, t)) match {
+      case Some(turtleMoved) => step(input, turtleMoved, newResult)
+      case None => newResult
     }
 
-    if (next == turtle) {
-      newResult
-    } else {
-      step(input, next, newResult)
-    }
   }
 
   def isValid(input: Seq[String], turtle: Turtle): Boolean = {
